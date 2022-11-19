@@ -2,7 +2,7 @@
 using namespace std;
 
 class BST {
-    
+
     struct node {
         int data;
         node* left;
@@ -125,7 +125,20 @@ public:
     }
 
     void search(int x) {
-        root = find(root, x);
+        if(find(root, x)!=NULL){
+            cout<<"Find"<<endl;
+        }
+        else{
+            cout<<"Not find"<<endl;
+        }
+    }
+    void Max()
+    {
+        cout<<findMax(root)->data<<endl;
+    }
+    void Min()
+    {
+        cout<<findMin(root)->data<<endl;
     }
 };
 
@@ -136,12 +149,60 @@ int main() {
     t.insert(15);
     t.insert(10);
     t.insert(30);
-    t.display();
-    t.remove(20);
-    t.display();
-    t.remove(25);
-    t.display();
-    t.remove(30);
-    t.display();
-    return 0; 
+    cout<<"1 Display Tree."<<endl;
+    cout<<"2 Insert value."<<endl;
+    cout<<"3 Remove value."<<endl;
+    cout<<"4 Show Maximum value."<<endl;
+    cout<<"5 Show Minimum value."<<endl;
+    cout<<"0 Exit"<<endl;
+    cout<<"------------------------------------------------"<<endl;
+    while(1)
+    {
+        int n;
+        cin>>n;
+        if(n==1)
+        {
+            t.display();
+        }
+        else if(n==2)
+        {
+            cout<<"Enter a value :";
+            int x;
+            cin>>x;
+            t.insert(x);
+        }
+        else if(n==3)
+        {
+           cout<<"Enter a value :";
+           int x;
+           cin>>x;
+           t.remove(x);
+       }
+       else if(n==4)
+       {
+        t.Max();
+    }
+    else if(n==5)
+    {
+        t.Min();
+    }
+    else if(n==0)
+    {
+        break;
+    }
+    else{
+        cout<<"Wrong value insert. Try again.."<<endl;
+        cout<<"1 Display Tree."<<endl;
+        cout<<"2 Insert value."<<endl;
+        cout<<"3 Remove value."<<endl;
+        cout<<"4 Show Maximum value."<<endl;
+        cout<<"5 Show Minimum value."<<endl;
+        cout<<"0 Exit"<<endl<<endl;
+    }
+}
+
+
+
+
+return 0; 
 }
